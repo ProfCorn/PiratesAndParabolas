@@ -8,8 +8,10 @@ public class LaunchController : MonoBehaviour
     public TMP_InputField lengthInputField; // Input for length
     public TMP_InputField heightInputField; // Input for height
     public GameObject cannonballPrefab; // Cannonball prefab
-    public Transform launchPoint; // Where the cannonball is launched from
-    public Transform CannonPivot; // The pivot point of the cannon  
+    public Transform launchPointOne; // Where the cannonball is launched from
+    public Transform CannonPivotOne; // The pivot point of the cannon  
+    public Transform launchPointTwo; // Where the cannonball is launched from
+    public Transform CannonPivotTwo; // The pivot point of the cannon  
 
     private float gravity = 9.81f;
 
@@ -61,7 +63,8 @@ public class LaunchController : MonoBehaviour
         float angle = Mathf.Atan((2 * height) / range); // Simplified approach, assumes 45 degrees initially
 
         // Set the Z rotation of the CannonPivot to the specified angle
-        CannonPivot.rotation = Quaternion.Euler(0, 0, -90 + angle);
+        CannonPivotOne.rotation = Quaternion.Euler(0, 0, angle);
+        CannonPivotTwo.rotation = Quaternion.Euler(0, 0, angle);
 
         return (angle * Mathf.Rad2Deg, strength);
     }
@@ -77,8 +80,9 @@ public class LaunchController : MonoBehaviour
         // Calculate the angle (in radians)
         angleInputField.text = "" + Mathf.Rad2Deg*Mathf.Atan((2 * float.Parse(heightInputField.text)) / float.Parse(lengthInputField.text)); // Simplified approach, assumes 45 degrees initially
 
-        // Set the Z rotation of the CannonPivot to the specified angle
-        CannonPivot.rotation = Quaternion.Euler(0, 0, -90 + float.Parse(angleInputField.text));
+
+        CannonPivotOne.rotation = Quaternion.Euler(0, 0, float.Parse(angleInputField.text));
+        CannonPivotTwo.rotation = Quaternion.Euler(0, 0, float.Parse(angleInputField.text));
 
     }
 
@@ -94,7 +98,8 @@ public class LaunchController : MonoBehaviour
         // Calculate the maximum height
         float maxHeight = Mathf.Pow(strength * Mathf.Sin(angleRadians), 2) / (2 * gravity);
 
-        CannonPivot.rotation = Quaternion.Euler(0, 0, -90 + angle);
+        CannonPivotOne.rotation = Quaternion.Euler(0, 0, angle);
+        CannonPivotTwo.rotation = Quaternion.Euler(0, 0, angle);
 
         return (range, maxHeight);
     }
@@ -105,7 +110,8 @@ public class LaunchController : MonoBehaviour
 
         AngleWasLastChanged = true;
 
-        CannonPivot.rotation = Quaternion.Euler(0, 0, -90 + float.Parse(angleInputField.text));
+        CannonPivotOne.rotation = Quaternion.Euler(0, 0, float.Parse(angleInputField.text));
+        CannonPivotTwo.rotation = Quaternion.Euler(0, 0, float.Parse(angleInputField.text));
 
         // Convert angle to radians
         float angleRadians = Mathf.Deg2Rad * float.Parse(angleInputField.text);
@@ -123,11 +129,13 @@ public class LaunchController : MonoBehaviour
     {
 
         // Set the Z rotation of the CannonPivot to the specified angle
-        CannonPivot.rotation = Quaternion.Euler(0, 0, -90+angle);
+        CannonPivotOne.rotation = Quaternion.Euler(0, 0, angle);
+        CannonPivotTwo.rotation = Quaternion.Euler(0, 0, angle);
 
 
         // Instantiate the cannonball at the launch point
-        GameObject cannonball = Instantiate(cannonballPrefab, launchPoint.position, Quaternion.identity);
+        GameObject cannonballOne = Instantiate(cannonballPrefab, launchPointOne.position, Quaternion.identity);
+        GameObject cannonballTwo = Instantiate(cannonballPrefab, launchPointTwo.position, Quaternion.identity);
 
         // Calculate the initial velocity components
         float angleRadians = Mathf.Deg2Rad * angle;
@@ -138,7 +146,11 @@ public class LaunchController : MonoBehaviour
         );
 
         // Set the cannonball's initial velocity
-        Cannonball cannonballScript = cannonball.GetComponent<Cannonball>();
-        cannonballScript.SetInitialVelocity(initialVelocity);
+        Cannonball cannonballScriptOne = cannonballOne.GetComponent<Cannonball>();
+        cannonballScriptOne.SetInitialVelocity(initialVelocity);
+
+        // Set the cannonball's initial velocity
+        Cannonball cannonballScriptTwo = cannonballTwo.GetComponent<Cannonball>();
+        cannonballScriptTwo.SetInitialVelocity(initialVelocity);
     }
 }
