@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EnemyPirateShipSink : MonoBehaviour
 {
@@ -21,8 +22,13 @@ public class EnemyPirateShipSink : MonoBehaviour
     private List<GameObject> activeSinkEffects = new List<GameObject>();
     private Mesh shipMesh;
 
+    public Canvas winCanvas; // Reference to the win menu UI
+
     private void Start()
     {
+
+        winCanvas = GameObject.FindWithTag("WinUI").GetComponent<Canvas>();
+
         MeshFilter mf = GetComponentInChildren<MeshFilter>();
         if (mf != null)
         {
@@ -102,6 +108,10 @@ public class EnemyPirateShipSink : MonoBehaviour
         {
             if (effect != null)
                 Destroy(effect);
+        }
+        if (winCanvas != null)
+        {
+            winCanvas.enabled = true;
         }
 
         Destroy(gameObject);

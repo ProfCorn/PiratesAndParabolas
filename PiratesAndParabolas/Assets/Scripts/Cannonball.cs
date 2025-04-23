@@ -38,8 +38,11 @@ public class Cannonball : MonoBehaviour
         if (collision.gameObject.CompareTag("EnemyPirateShip"))
         {
             DestroyEnemyPirateShip(collision);
-            DestroyCannonball();
+            
         }
+
+        DestroyCannonball();
+
     }
 
     // Destroy the cannonball (either by falling below y = -3 or colliding with the pirate ship)

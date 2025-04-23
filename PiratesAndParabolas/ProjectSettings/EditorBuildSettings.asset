@@ -4,5 +4,14 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Easy.unity
+    guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 1
+    path: Assets/Scenes/Mountian.unity
+    guid: 207cb78bea5850e4e854b2826ade5d89
+  - enabled: 1
+    path: Assets/Scenes/Needle.unity
+    guid: df5c2d8340b3f0c44ac1f69988828289
   m_configObjects: {}
