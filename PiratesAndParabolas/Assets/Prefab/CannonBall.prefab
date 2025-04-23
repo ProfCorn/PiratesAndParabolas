@@ -64,7 +64,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: -554506159104368933, guid: 5c69af9f84b7e6f47b831f99ce0abf93, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -148,3 +148,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyPirateShip: {fileID: 3664625670244588501, guid: 78ce000ed1a90524ba3c0fa101c121f5, type: 3}
   explosionPrefab: {fileID: 4061613133191920912, guid: c4d942408e6181c41932dca7fb92550d, type: 3}
+  explosionDelay: 12

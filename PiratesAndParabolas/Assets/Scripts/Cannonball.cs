@@ -28,6 +28,7 @@ public class Cannonball : MonoBehaviour
         {
             DestroyCannonball();
         }
+
     }
 
     // This method is called when the cannonball collides with another collider
@@ -36,8 +37,8 @@ public class Cannonball : MonoBehaviour
         // Check if the cannonball hits the enemy pirate ship
         if (collision.gameObject.CompareTag("EnemyPirateShip"))
         {
-            DestroyCannonball();
             DestroyEnemyPirateShip(collision);
+            DestroyCannonball();
         }
     }
 
@@ -72,6 +73,6 @@ public class Cannonball : MonoBehaviour
         }
 
         // Destroy the cannonball object
-        Destroy(collision.gameObject);
+        collision.gameObject.transform.parent.gameObject.GetComponent<EnemyPirateShipSink>().isSinking = true;
     }
 }
