@@ -2861,6 +2861,9 @@ GameObject:
   - component: {fileID: 6387940644933917657}
   - component: {fileID: 7139238988980367541}
   - component: {fileID: 7420066438455137865}
+  - component: {fileID: 5258990344759738116}
+  - component: {fileID: 5986940227351160785}
+  - component: {fileID: 3698521462326453277}
   m_Layer: 0
   m_Name: EnemyShip
   m_TagString: EnemyPirateShip
@@ -2982,8 +2985,74 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sinkEffectPrefab: {fileID: 4061613133191920912, guid: 56463e5c2ca5fac48a9b4a41d4677502, type: 3}
-  sinkSpeed: 0.5
-  destroyYPosition: -10
+  BubbleSpawners: []
+  maxSpawners: 500
+  spawnerChance: 0.102
+  bubbleEffectChance: 0.019
+  isSinking: 0
+--- !u!65 &5258990344759738116
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8727061536579578661}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.84204614, y: 2.1527052, z: 0.7534973}
+  m_Center: {x: 0.02252251, y: -0.02201128, z: -0.12325138}
+--- !u!65 &5986940227351160785
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8727061536579578661}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.29824078, y: 1, z: 1.1843879}
+  m_Center: {x: -0.30643684, y: 4.2197678e-16, z: 0.09219396}
+--- !u!65 &3698521462326453277
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8727061536579578661}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.22615886, y: 1, z: 1.6492443}
+  m_Center: {x: 0.31210315, y: 1.0604463e-15, z: 0.3246222}
 --- !u!1 &8757951756647841038
 GameObject:
   m_ObjectHideFlags: 0

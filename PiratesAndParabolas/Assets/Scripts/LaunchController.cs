@@ -12,6 +12,8 @@ public class LaunchController : MonoBehaviour
     public Transform CannonPivotOne; // The pivot point of the cannon  
     public Transform launchPointTwo; // Where the cannonball is launched from
     public Transform CannonPivotTwo; // The pivot point of the cannon  
+    public GameObject EnemyPrefab; // Ship prefab
+    public Transform EnemySpawnPoint; // Where the ship is spawned
 
     private float gravity = 9.81f;
 
@@ -153,4 +155,21 @@ public class LaunchController : MonoBehaviour
         Cannonball cannonballScriptTwo = cannonballTwo.GetComponent<Cannonball>();
         cannonballScriptTwo.SetInitialVelocity(initialVelocity);
     }
+
+    public void SpawnEnemyShip()
+    {
+        if (EnemyPrefab == null || EnemySpawnPoint == null)
+        {
+            Debug.LogError("EnemyPrefab or EnemySpawnPoint is not assigned.");
+            return;
+        }
+        if (!GameObject.FindWithTag("EnemyPirateShip"))
+        {
+            // Define the rotation for the enemy ship (e.g., rotated 90 degrees on the Y-axis)
+            Quaternion shipRotation = Quaternion.Euler(-90, 0, 0); // Adjust values as needed
+            // Instantiate the enemy ship at the spawn point
+            GameObject enemyShip = Instantiate(EnemyPrefab, EnemySpawnPoint.position, shipRotation);
+        }    
+    }
+
 }

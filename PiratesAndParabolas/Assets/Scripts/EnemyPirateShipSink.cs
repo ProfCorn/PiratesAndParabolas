@@ -15,7 +15,7 @@ public class EnemyPirateShipSink : MonoBehaviour
     [Range(0f, 1f)] public float bubbleEffectChance = 1f; // Chance each spawner will play effect
 
     private float sinkSpeed = 0.5f;
-    private float destroyYPosition = -8f;
+    private float destroyYPosition = -5f;
     public bool isSinking = false;
 
     private List<GameObject> activeSinkEffects = new List<GameObject>();
@@ -49,7 +49,7 @@ public class EnemyPirateShipSink : MonoBehaviour
             // Spawn effects only if below threshold and passes random chance
             foreach (Transform spawner in BubbleSpawners)
             {
-                if (spawner.position.y <= -3.1f && Random.value <= bubbleEffectChance)
+                if (spawner.position.y <= -0.4f && Random.value <= bubbleEffectChance)
                 {
                     // Create the particle system at the cannonball's position
                     GameObject effect = Instantiate(sinkEffectPrefab, spawner.position, Quaternion.identity);
